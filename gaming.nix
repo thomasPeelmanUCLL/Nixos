@@ -5,6 +5,7 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
+    gamescopeSession.enable = true;
   };
 
   boot.kernel.sysctl = {
@@ -21,8 +22,21 @@
   };
 
   environment.systemPackages = with pkgs; [
-  git
    inputs.nix-citizen.packages.${system}.rsi-launcher
    rnnoise-plugin
+
+  #steam
+  mangohud
+
+  #protonup
+  protonup-ng
   ];
+
+  programs.gamemode.enable = true;
+
+  #protonup
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+      "\${HOME}/.steam/root/compatibilitytools.d";
+  };
 }

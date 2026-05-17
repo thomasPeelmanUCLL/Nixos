@@ -7,12 +7,13 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      ./packages.nix
       ./hardware-configuration.nix
       ./desktop.nix
       ./gaming.nix
       ./nvidia.nix
       ./users/bob.nix
-      ./packages.nix
+
     ];
 
   # Bootloader.
