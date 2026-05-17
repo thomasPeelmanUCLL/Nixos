@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, system, ... }:
 
 {
   imports =
@@ -42,6 +42,16 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+
+  #auto update systemPackages
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.dates = "weekly";
+
+  #auto cleanup
+  nix.gc.automatic = true;
+  nix.gc.dates = "daily";
+  nix.gc.options = "--delete-older-then 10d";
+  nix.settings.auto-optimise-store = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
