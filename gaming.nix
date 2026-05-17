@@ -15,23 +15,14 @@
   nix.settings = {
     substituters = [ "https://nix-citizen.cachix.org" ];
     trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       "nix-citizen.cachix.org-1:lPMkWc2X8XD4/7YPEEwXKKBg+SVbYTVrAaLA2wQTKCo="
     ];
   };
 
   environment.systemPackages = with pkgs; [
+  git
    inputs.nix-citizen.packages.${system}.rsi-launcher
-    wget
-    rnnoise-plugin
-    git
-    mesa-demos
-    libva-utils
-    pciutils
-    lm_sensors
-    vim
-    baobab
-    nil
-    nixfmt-rfc-style
-    fastfetch
+   rnnoise-plugin
   ];
 }
