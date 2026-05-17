@@ -30,6 +30,10 @@
 
   #protonup
   protonup-ng
+
+  lutris
+  heroic
+  bottles
   ];
 
   programs.gamemode.enable = true;
