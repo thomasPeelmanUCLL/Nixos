@@ -2,24 +2,20 @@
 { config, pkgs, ... }:
 
 {
-  boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+  hardware.opengl = {
+  enable = true;
+  driSupport = true;
+  driSupport32Bit = true;
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
+  hardware.nvidia.modesetting.enable = true;
 
-  hardware.graphics.enable = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    libva-vdpau-driver
-    libvdpau-va-gl
-  ];
+  hardware.nvidia.prime = {
+    sync.enable = true;
 
-  hardware.enableAllFirmware = true;
+    # dedicated
+    nvidiaBusId = "PCI:2b:0:0";
+  };
+
 }

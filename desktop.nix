@@ -2,6 +2,7 @@
 { pkgs, ... }:
 
 {
+  services.displayManager.defaultSession = "plasma";
   services.xserver.enable = true;
 
   services.displayManager.sddm.enable = true;
@@ -30,4 +31,6 @@
     pulse.enable = true;
     wireplumber.enable = true;
   };
+
+  services.displayManager.sddm.wayland.enable = false;
 }
