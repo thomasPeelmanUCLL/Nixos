@@ -2,11 +2,20 @@
 { pkgs, ... }:
 
 {
-  services.displayManager.defaultSession = "plasma";
-  services.xserver.enable = true;
+services.displayManager.defaultSession = "plasma";
+services.displayManager.sddm.enable = true;
+services.displayManager.sddm.wayland.enable = true;
+services.desktopManager.plasma6.enable = true;
+services.xserver.enable = true;
 
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    GBM_BACKEND = "nvidia-drm";
+};
+
+
 
   programs.kdeconnect.enable = true;
   programs.dconf.enable = true;
@@ -31,6 +40,4 @@
     pulse.enable = true;
     wireplumber.enable = true;
   };
-
-  services.displayManager.sddm.wayland.enable = false;
 }
