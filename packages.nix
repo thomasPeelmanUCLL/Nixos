@@ -19,6 +19,9 @@ environment.systemPackages = with pkgs; [
     nil
     nixfmt-rfc-style
 
+    # rebuild using nh os switch /etc/nixos
+    nh
+
     # Desktop utilities
     baobab
   ];
