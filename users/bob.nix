@@ -5,7 +5,7 @@
   users.users.bob = {
     isNormalUser = true;
     description = "bob";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video"];
     packages = with pkgs; [
       kdePackages.kate
       thunderbird
