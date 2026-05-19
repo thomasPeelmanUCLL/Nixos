@@ -2,7 +2,7 @@
 { inputs, ... }:
 
 {
-  flake.nixosModules.gaming = { pkgs, system, ... }: {
+  flake.nixosModules.gaming = { pkgs, lib, inputs, system, ... }: {
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;
