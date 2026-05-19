@@ -18,6 +18,6 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
-      imports = builtins.attrValues (import-tree [ ./modules ]);
+      imports = import-tree ./modules;
     };
 }
