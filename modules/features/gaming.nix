@@ -37,6 +37,14 @@
     environment.sessionVariables = {
       STEAM_EXTRA_COMPAT_TOOLS_PATHS =
         "\${HOME}/.steam/root/compatibilitytools.d";
+
+      # Fix RSI Launcher CEF/ANGLE D3D renderer failure on Linux/NVIDIA
+      # Forces the embedded Chromium to use OpenGL instead of D3D/ANGLE
+      ANGLE_DEFAULT_PLATFORM = "gl";
+      LIBGL_ALWAYS_SOFTWARE = "0";
+
+      # Wayland/NVIDIA specific: ensure correct EGL platform
+      EGL_PLATFORM = "wayland";
     };
   };
 }
