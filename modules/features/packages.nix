@@ -4,10 +4,27 @@
 {
   flake.nixosModules.packages = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
-      git
+      # CLI essentials
       wget
-      curl
+      git
       vim
+
+      # System inspection
+      pciutils
+      lm_sensors
+      libva-utils
+      mesa-demos
+      fastfetch
+
+      # Nix tooling
+      nil
+      nixfmt-rfc-style
+
+      # rebuild using nh os switch /etc/nixos
+      nh
+
+      # Desktop utilities
+      baobab
     ];
   };
 }

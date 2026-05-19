@@ -6,8 +6,17 @@
     users.users.bob = {
       isNormalUser = true;
       description = "bob";
-      extraGroups = [ "networkmanager" "wheel" "audio" "video" "docker" ];
-      shell = pkgs.bash;
+      extraGroups = [ "networkmanager" "wheel" "video" ];
+      packages = with pkgs; [
+        kdePackages.kate
+        thunderbird
+        brave
+        discord-ptb
+        discord
+        pavucontrol
+        vscode
+        blender
+      ];
     };
   };
 }
