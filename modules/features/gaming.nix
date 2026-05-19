@@ -1,17 +1,24 @@
-# Gaming: Steam, GameMode, Star Citizen (nix-citizen), Lutris, Heroic, Bottles.
+# Gaming: Steam, GameMode, Star Citizen (via nix-citizen NixOS module), Lutris, Heroic, Bottles.
 { inputs, ... }:
 
 {
-  flake.nixosModules.gaming = { pkgs, lib, inputs, system, ... }: {
+  flake.nixosModules.gaming = { pkgs, ... }: {
+    imports = [
+      inputs.nix-citizen.nixosModules.default
+    ];
+
     programs.steam = {
       enable = true;
       remotePlay.openFirewall = true;
       gamescopeSession.enable = true;
     };
 
-    boot.kernel.sysctl = {
-      "vm.max_map_count" = 1048576;
-      "fs.file-max" = 524288;
+    # Star Citizen via nix-citizen module
+    programs.rsi-launcher = {
+      enable = true;
+      preCommands = ''
+        export MANGOHUD=1;
+      '';
     };
 
     nix.settings = {
@@ -23,7 +30,6 @@
     };
 
     environment.systemPackages = with pkgs; [
-      inputs.nix-citizen.packages.${system}.rsi-launcher
       rnnoise-plugin
       mangohud
       protonup-ng
