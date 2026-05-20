@@ -9,6 +9,7 @@
       self.nixosModules.gaming
       self.nixosModules.nvidia
       self.nixosModules.packages
+      self.nixosModules.obsstudio
       self.nixosModules.user-bob
     ];
 
