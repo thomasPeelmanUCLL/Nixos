@@ -25,6 +25,9 @@
 
       # Desktop utilities
       baobab
+
+      davinci-resolve
+      
     ];
   };
 }
