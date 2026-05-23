@@ -27,9 +27,19 @@
     nixpkgs.config.allowUnfree = true;
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    
+    system.autoUpgrade = {
+      enable = true;
+      dates = "weekly";
+      flake = "/etc/nixos";
+      allowReboot = false;  # set true if you want it to reboot automatically after upgrade
+      flags = [
+        "--update-input" "nixpkgs"
+        "--update-input" "nix-citizen"
+        "--commit-lock-file"   # auto-commits flake.lock after update
+      ];
+    };
 
-    system.autoUpgrade.enable = true;
-    system.autoUpgrade.dates = "weekly";
 
     nix.gc.automatic = true;
     nix.gc.dates = "daily";
