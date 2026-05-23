@@ -3,6 +3,9 @@
 
 {
   flake.nixosModules.user-bob = { pkgs, ... }: {
+
+    services.pcscd.enable = true;
+
     users.users.bob = {
       isNormalUser = true;
       description = "bob";
@@ -16,6 +19,15 @@
         pavucontrol
         vscode
         blender
+        davinci-resolve
+        chatterino2
+        gimp3
+        wasistlos
+        anytype
+        element-desktop
+        #eID helpers
+        #eid-viewer
+        firefox
       ];
     };
   };

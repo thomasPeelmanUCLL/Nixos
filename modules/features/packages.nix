@@ -27,7 +27,12 @@
       baobab
 
       davinci-resolve
-      
+
+      chatterino2
+
+      dysk
+
+      gimp3
     ];
   };
 }
