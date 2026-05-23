@@ -25,8 +25,6 @@
         wasistlos
         anytype
         element-desktop
-        #eID helpers
-        #eid-viewer
         firefox
       ];
     };
