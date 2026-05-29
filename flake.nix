@@ -2,7 +2,7 @@
   description = "Frederick's NixOS system";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     nix-citizen.url = "github:LovingMelody/nix-citizen";
 

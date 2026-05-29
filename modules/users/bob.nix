@@ -4,6 +4,14 @@
 {
   flake.nixosModules.user-bob = { pkgs, ... }: {
 
+    nixpkgs.overlays = [
+      (final: prev: {
+        openldap = prev.openldap.overrideAttrs (old: {
+          doCheck = false;
+        });
+      })
+    ];
+
     services.pcscd.enable = true;
 
     users.users.bob = {
@@ -22,10 +30,12 @@
         davinci-resolve
         chatterino2
         gimp3
-        wasistlos
+        karere
         anytype
         element-desktop
         firefox
+        beyond-all-reason
+        ani-cli
       ];
     };
   };
