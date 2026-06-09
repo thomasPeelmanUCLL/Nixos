@@ -13,6 +13,11 @@
       NIXOS_OZONE_WL = "1";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
       GBM_BACKEND = "nvidia-drm";
+
+      # ADD THESE:
+      __EGL_VENDOR_LIBRARY_FILENAMES = "/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json";
+      LIBVA_DRIVER_NAME = "nvidia";
+      NVD_BACKEND = "direct";                  # Fixes VA-API decoding lag
     };
 
     programs.kdeconnect.enable = true;
@@ -38,5 +43,9 @@
       pulse.enable = true;
       wireplumber.enable = true;
     };
+
+    services.flatpak.enable = true;
+
   };
 }
+

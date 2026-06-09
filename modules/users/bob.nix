@@ -34,7 +34,6 @@
         anytype
         element-desktop
         firefox
-        beyond-all-reason
         ani-cli
       ];
     };

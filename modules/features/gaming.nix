@@ -12,6 +12,9 @@
     boot.kernel.sysctl = {
       "vm.max_map_count" = 1048576;
       "fs.file-max" = 524288;
+
+      # ADD: needed for Wine/Proton esync
+      "kernel.unprivileged_userns_clone" = 1;
     };
 
     nix.settings = {
@@ -22,6 +25,11 @@
       ];
     };
 
+    security.pam.loginLimits = [
+      { domain = "*"; type = "hard"; item = "nofile"; value = "1048576"; }
+      { domain = "*"; type = "soft"; item = "nofile"; value = "1048576"; }
+    ];
+
     environment.systemPackages = with pkgs; [
       inputs.nix-citizen.packages.${system}.rsi-launcher
       rnnoise-plugin
@@ -30,6 +38,9 @@
       lutris
       heroic
       bottles
+      beyond-all-reason
+      prismlauncher
+      lunar-client
     ];
 
     programs.gamemode.enable = true;
@@ -45,6 +56,13 @@
 
       # Wayland/NVIDIA specific: ensure correct EGL platform
       EGL_PLATFORM = "wayland";
+
+      PROTON_NO_ESYNC = "0";
+      PROTON_NO_FSYNC = "0";
+      PROTON_USE_WINED3D = "0";
+      
+      # Fix SIGSYS/seccomp issues with Wine on NixOS
+      PRESSURE_VESSEL_FILESYSTEMS_RW = "$HOME";
     };
   };
 }

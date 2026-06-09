@@ -26,6 +26,20 @@
       # Desktop utilities
       baobab
       dysk
+
+
+      vlc
+      mpv
+
+      nvtopPackages.full
+
+      remmina      # all-in-one GUI
+      terminator   # split terminal
+      tmux         # terminal multiplexer
+      zellij       # modern tmux alternative
+      lftp         # SFTP/FTP CLI
+
+      btop
     ];
   };
 }
