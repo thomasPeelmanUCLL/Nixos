@@ -4,8 +4,16 @@
 {
   flake.nixosModules.user-bob = { pkgs, ... }: {
 
+    # In modules/users/bob.nix — replace both discord entries in the overlay
     nixpkgs.overlays = [
       (final: prev: {
+        discord = prev.discord.override {
+          commandLineArgs = "--disable-features=MediaFoundationH264Encoding,HardwareMediaKeyHandling";
+        };
+        discord-ptb = prev.discord-ptb.override {
+          commandLineArgs = "--disable-features=MediaFoundationH264Encoding,HardwareMediaKeyHandling";
+        };
+
         openldap = prev.openldap.overrideAttrs (old: {
           doCheck = false;
         });

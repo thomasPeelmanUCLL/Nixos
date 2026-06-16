@@ -40,6 +40,8 @@
       lftp         # SFTP/FTP CLI
 
       btop
+
+      termius
     ];
   };
 }
