@@ -18,6 +18,9 @@
       __EGL_VENDOR_LIBRARY_FILENAMES = "/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json";
       LIBVA_DRIVER_NAME = "nvidia";
       NVD_BACKEND = "direct";                  # Fixes VA-API decoding lag
+
+      # New — fixes the Qt EGL crash (Spectacle loop + Discord SIGSEGV):
+      QSG_RHI_BACKEND = "vulkan";
     };
 
     programs.kdeconnect.enable = true;
