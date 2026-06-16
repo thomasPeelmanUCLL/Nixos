@@ -18,7 +18,7 @@
 
       # Nix tooling
       nil
-      nixfmt-rfc-style
+      nixfmt
 
       # rebuild using nh os switch /etc/nixos
       nh
