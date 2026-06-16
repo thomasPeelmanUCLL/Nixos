@@ -4,6 +4,15 @@
 {
   flake.nixosModules.user-bob = { pkgs, ... }: {
 
+    systemd.user.services.easyeffects = {
+      description = "EasyEffects audio effects";
+      wantedBy = [ "default.target" ];
+      serviceConfig = {
+        ExecStart = "${pkgs.easyeffects}/bin/easyeffects --gapplication-service";
+        Restart = "on-failure";
+      };
+    };
+
     # In modules/users/bob.nix — replace both discord entries in the overlay
     nixpkgs.overlays = [
       (final: prev: {

@@ -42,6 +42,8 @@
       btop
 
       termius
+
+      easyeffects
     ];
   };
 }
