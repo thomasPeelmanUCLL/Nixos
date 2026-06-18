@@ -9,6 +9,12 @@
     services.desktopManager.plasma6.enable = true;
     services.xserver.enable = true;
 
+
+    environment.etc."xdg/kwinrc".text = ''
+      [ModifierOnlyShortcuts]
+      Meta=org.kde.plasmashell,/PlasmaShell,org.kde.PlasmaShell,activateLauncherMenu
+    '';
+
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
       __GLX_VENDOR_LIBRARY_NAME = "nvidia";
@@ -21,6 +27,8 @@
 
       # New — fixes the Qt EGL crash (Spectacle loop + Discord SIGSEGV):
       QSG_RHI_BACKEND = "vulkan";
+
+      VK_DRIVER_FILES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.x86_64.json";
     };
 
     programs.kdeconnect.enable = true;

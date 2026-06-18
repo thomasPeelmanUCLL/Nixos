@@ -4,6 +4,7 @@
 {
   flake.nixosModules.user-bob = { pkgs, ... }: {
 
+    /*
     systemd.user.services.easyeffects = {
       description = "EasyEffects audio effects";
       wantedBy = [ "default.target" ];
@@ -12,6 +13,7 @@
         Restart = "on-failure";
       };
     };
+    */
 
     # In modules/users/bob.nix — replace both discord entries in the overlay
     nixpkgs.overlays = [
@@ -47,11 +49,9 @@
         davinci-resolve
         chatterino2
         gimp3
-        karere
         anytype
         element-desktop
         firefox
-        ani-cli
       ];
     };
   };
