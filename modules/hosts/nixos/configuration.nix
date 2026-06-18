@@ -16,7 +16,7 @@
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelModules = [ "nvidia" "nvidia_uvm" "nvidia_modeset" "nvidia_drm"];
-    boot.kernelParams = [ "pcie_aspm=off" "nvidia-drm.fbdev=1"];
+    boot.kernelParams = [ "pcie_aspm=off"];
 
     networking.hostName = "nixos";
     networking.networkmanager.enable = true;
