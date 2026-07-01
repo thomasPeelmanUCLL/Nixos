@@ -15,21 +15,11 @@
     };
     */
 
-    # In modules/users/bob.nix — replace both discord entries in the overlay
-    nixpkgs.overlays = [
-      (final: prev: {
-        discord = prev.discord.override {
-          commandLineArgs = "--disable-features=MediaFoundationH264Encoding,HardwareMediaKeyHandling";
-        };
-        discord-ptb = prev.discord-ptb.override {
-          commandLineArgs = "--disable-features=MediaFoundationH264Encoding,HardwareMediaKeyHandling";
-        };
-
-        openldap = prev.openldap.overrideAttrs (old: {
-          doCheck = false;
-        });
-      })
-    ];
+  nixpkgs.overlays = [
+  (final: _prev: {
+    pnpm_10_29_2 = final.pnpm_10;  # redirects to latest patched pnpm 10.x
+  })
+];
 
     services.pcscd.enable = true;
 
@@ -41,8 +31,7 @@
         kdePackages.kate
         thunderbird
         brave
-        discord-ptb
-        discord
+        vesktop
         pavucontrol
         vscode
         blender
