@@ -22,11 +22,13 @@
 ];
 
     services.pcscd.enable = true;
+    virtualisation.docker.enable = true;
+
 
     users.users.bob = {
       isNormalUser = true;
       description = "bob";
-      extraGroups = [ "networkmanager" "wheel" "video" ];
+      extraGroups = [ "networkmanager" "wheel" "video" "docker" ];
       packages = with pkgs; [
         kdePackages.kate
         thunderbird
@@ -41,6 +43,9 @@
         anytype
         element-desktop
         firefox
+        git
+        pnpm
+        docker
       ];
     };
   };
