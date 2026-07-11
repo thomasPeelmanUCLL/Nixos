@@ -33,7 +33,6 @@
         kdePackages.kate
         thunderbird
         brave
-        vesktop
         pavucontrol
         vscode
         blender
@@ -44,7 +43,6 @@
         element-desktop
         firefox
         git
-        pnpm
         docker
       ];
     };

@@ -37,10 +37,10 @@
       protonup-ng
       lutris
       heroic
-      bottles
       beyond-all-reason
       prismlauncher
       lunar-client
+      vesktop
     ];
 
     programs.gamemode.enable = true;
