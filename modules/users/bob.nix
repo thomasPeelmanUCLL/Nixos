@@ -24,11 +24,19 @@
     services.pcscd.enable = true;
     virtualisation.docker.enable = true;
 
+/*
+     nixpkgs.config.permittedInsecurePackages = [
+    # TEMP 2026-07-16: Vesktop still on Electron 40.10.5 (EOL/insecure).
+    # Remove once upstream bumps Electron.
+    "electron-40.10.5"
+  ];
+  
+  */
 
     users.users.bob = {
       isNormalUser = true;
       description = "bob";
-      extraGroups = [ "networkmanager" "wheel" "video" "docker" ];
+      extraGroups = [ "networkmanager" "wheel" "video" "docker" "openrazer"];
       packages = with pkgs; [
         kdePackages.kate
         thunderbird
@@ -44,6 +52,8 @@
         firefox
         git
         docker
+        jetbrains.datagrip
+
       ];
     };
   };

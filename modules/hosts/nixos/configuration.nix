@@ -11,6 +11,7 @@
       self.nixosModules.packages
       self.nixosModules.obsstudio
       self.nixosModules.user-bob
+    
     ];
 
     boot.loader.systemd-boot.enable = true;

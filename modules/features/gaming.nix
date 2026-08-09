@@ -37,7 +37,7 @@
       protonup-ng
       lutris
       heroic
-      beyond-all-reason
+      #beyond-all-reason
       prismlauncher
       lunar-client
       vesktop
