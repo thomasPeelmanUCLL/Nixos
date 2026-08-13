@@ -15,28 +15,14 @@
     };
     */
 
-  nixpkgs.overlays = [
-  (final: _prev: {
-    pnpm_10_29_2 = final.pnpm_10;  # redirects to latest patched pnpm 10.x
-  })
-];
-
     services.pcscd.enable = true;
-    virtualisation.docker.enable = true;
 
-/*
-     nixpkgs.config.permittedInsecurePackages = [
-    # TEMP 2026-07-16: Vesktop still on Electron 40.10.5 (EOL/insecure).
-    # Remove once upstream bumps Electron.
-    "electron-40.10.5"
-  ];
-  
-  */
+
 
     users.users.bob = {
       isNormalUser = true;
       description = "bob";
-      extraGroups = [ "networkmanager" "wheel" "video" "docker" "openrazer"];
+      extraGroups = [ "networkmanager" "wheel" "video" "openrazer" "docker" ];
       packages = with pkgs; [
         kdePackages.kate
         thunderbird
@@ -50,10 +36,7 @@
         anytype
         element-desktop
         firefox
-        git
-        docker
         jetbrains.datagrip
-
       ];
     };
   };

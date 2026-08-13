@@ -11,16 +11,13 @@
       self.nixosModules.packages
       self.nixosModules.obsstudio
       self.nixosModules.user-bob
-    
+      self.nixosModules.database
+      self.nixosModules.docker
     ];
 
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
-    boot.kernelModules = [ "nvidia" "nvidia_uvm" "nvidia_modeset" "nvidia_drm"];
     boot.kernelParams = [ "pcie_aspm=off"];
-
-    networking.hostName = "nixos";
-    networking.networkmanager.enable = true;
 
     time.timeZone = "Europe/Brussels";
     i18n.defaultLocale = "en_US.UTF-8";

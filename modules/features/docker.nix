@@ -1,10 +1,12 @@
 { ... }:
 
 {
-  flake.nixosModules.docker = {pkgs, ...}: {
+  flake.nixosModules.docker = {pkgs,config, ...}: {
     # Docker daemon inschakelen
   virtualisation.docker = {
     enable = true;
+
+    enableOnBoot = false;
 
     # Optioneel: rootless Docker (daemon als user, veiliger)
     # rootless = {
@@ -18,14 +20,18 @@
     # };
   };
 
-  # Gebruikers toegang geven tot docker
-  # Pas <jouw-user> aan naar je username (bijv. "bob")
-  users.users.bob.extraGroups = [ "docker" ];
 
   # Zorg dat Docker pas start na netwerk
   systemd.services.docker = {
+    enable = true;         # wel beschikbaar, maar...
+    wantedBy = [];         # ...niet automatisch starten
+
     wants = [ "network-online.target" ];
     after = [ "network-online.target" ];
   };
+  systemd.sockets.docker = {
+        enable = true;
+        wantedBy = [];
+      };
   };
 }

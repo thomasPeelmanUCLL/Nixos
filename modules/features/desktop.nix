@@ -10,35 +10,12 @@
     #services.xserver.enable = true;
 
 
-    /*
-    environment.etc."xdg/kwinrc".text = ''
-      [ModifierOnlyShortcuts]
-      Meta=org.kde.plasmashell,/PlasmaShell,org.kde.PlasmaShell,activateLauncherMenu
-    '';
-    */
-/*
-    environment.sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      GBM_BACKEND = "nvidia-drm";
-
-      # ADD THESE:
-      __EGL_VENDOR_LIBRARY_FILENAMES = "/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json";
-      LIBVA_DRIVER_NAME = "nvidia";
-      NVD_BACKEND = "direct";                  # Fixes VA-API decoding lag
-
-      # New — fixes the Qt EGL crash (Spectacle loop + Discord SIGSEGV):
-      QSG_RHI_BACKEND = "vulkan";
-    };
-*/
-
 environment.sessionVariables = {
   NIXOS_OZONE_WL = "1";
   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   GBM_BACKEND = "nvidia-drm";
   __EGL_VENDOR_LIBRARY_FILENAMES = "/run/opengl-driver/share/glvnd/egl_vendor.d/10_nvidia.json";
   LIBVA_DRIVER_NAME = "nvidia";
-  # Remove NVD_BACKEND and QSG_RHI_BACKEND — test without them first
 };
 
 
