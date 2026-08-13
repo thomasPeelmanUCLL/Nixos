@@ -23,14 +23,14 @@
 
   # Zorg dat Docker pas start na netwerk
   systemd.services.docker = {
-    enable = true;         # wel beschikbaar, maar...
+    enable = false;         # wel beschikbaar, maar...
     wantedBy = [];         # ...niet automatisch starten
 
     wants = [ "network-online.target" ];
     after = [ "network-online.target" ];
   };
   systemd.sockets.docker = {
-        enable = true;
+        enable = false;
         wantedBy = [];
       };
   };

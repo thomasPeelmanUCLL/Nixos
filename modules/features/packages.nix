@@ -12,10 +12,6 @@
     services.udev.packages = [ pkgs.openrazer-daemon ];
     hardware.openrazer.enable = true;
     
-    ##tailscale
-    services.tailscale.enable = true;
-    networking.firewall.allowedUDPPorts = [ 41641 ];
-    
     environment.systemPackages = with pkgs; [
       # CLI essentials
       wget

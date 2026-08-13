@@ -3,7 +3,7 @@
 {
   flake.nixosModules.networking = {
     networking = {
-      hostName = "nixosdesktop";
+      hostName = "nixos";
       networkmanager = {
         enable = true;
 
