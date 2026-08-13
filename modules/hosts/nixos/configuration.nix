@@ -13,6 +13,7 @@
       self.nixosModules.user-bob
       self.nixosModules.database
       self.nixosModules.docker
+      self.nixosModules.networking
     ];
 
     boot.loader.systemd-boot.enable = true;
