@@ -46,24 +46,6 @@
 
     programs.gamemode.enable = true;
 
-    environment.sessionVariables = {
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-        "\${HOME}/.steam/root/compatibilitytools.d";
-
-      # Fix RSI Launcher CEF/ANGLE D3D renderer failure on Linux/NVIDIA
-      # Forces the embedded Chromium to use OpenGL instead of D3D/ANGLE
-      ANGLE_DEFAULT_PLATFORM = "gl";
-      LIBGL_ALWAYS_SOFTWARE = "0";
-
-      # Wayland/NVIDIA specific: ensure correct EGL platform
-      EGL_PLATFORM = "wayland";
-
-      PROTON_NO_ESYNC = "0";
-      PROTON_NO_FSYNC = "0";
-      PROTON_USE_WINED3D = "0";
-      
-      # Fix SIGSYS/seccomp issues with Wine on NixOS
-      PRESSURE_VESSEL_FILESYSTEMS_RW = "$HOME";
-    };
+    
   };
 }

@@ -37,6 +37,8 @@
         element-desktop
         firefox
         jetbrains.datagrip
+        rar
+        unrar
       ];
     };
   };
