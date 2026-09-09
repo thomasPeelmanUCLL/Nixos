@@ -10,6 +10,7 @@
 
     ensureDatabases = [
       "myapp"
+      "inventory_app"
     ];
 
     ensureUsers = [
@@ -20,8 +21,14 @@
     ];
   };
 
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb_110;  # or pkgs.mariadb for default
+  };
+
   environment.systemPackages = [
     pkgs.postgresql
+    pkgs.mariadb
   ];
   };
 }

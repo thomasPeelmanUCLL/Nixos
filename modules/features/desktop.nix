@@ -9,6 +9,8 @@
     services.desktopManager.plasma6.enable = true;
     #services.xserver.enable = true;
 
+    virtualisation.virtualbox.host.enable = true;
+    users.extraGroups.vboxusers.members = [ "bob" ];
 
 environment.sessionVariables = {
   NIXOS_OZONE_WL = "1";

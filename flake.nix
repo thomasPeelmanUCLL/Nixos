@@ -9,6 +9,8 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     nix-citizen.inputs.nix-gaming.follows = "nix-gaming";
 
+    tmog.url = "github:thomasPeelmanUCLL/nixos-tmog";
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";

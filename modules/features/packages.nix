@@ -8,6 +8,7 @@
       enable = true;
       openFirewall = true; # Required for auto-discovering MikroTik routers
     };
+    programs.direnv.enable = true;
 
     services.udev.packages = [ pkgs.openrazer-daemon ];
     hardware.openrazer.enable = true;

@@ -5,7 +5,7 @@
   virtualisation.docker = {
     enable = true;
 
-    enableOnBoot = false;
+    enableOnBoot = true;
 
     # rootless = {
     #   enable = true;
@@ -19,14 +19,14 @@
 
 
   systemd.services.docker = {
-    enable = false;         
+    enable = true;         
     wantedBy = [];         
 
     wants = [ "network-online.target" ];
     after = [ "network-online.target" ];
   };
   systemd.sockets.docker = {
-        enable = false;
+        enable = true;
         wantedBy = [];
       };
   };

@@ -11,12 +11,24 @@
       self.nixosModules.packages
       self.nixosModules.obsstudio
       self.nixosModules.user-bob
-      self.nixosModules.database
+      #self.nixosModules.database
       self.nixosModules.docker
       self.nixosModules.networking
+      self.nixosModules.aimodels
     ];
 
     boot.loader.systemd-boot.enable = true;
+
+    /*
+    boot.loader.grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;      # detect Windows and other OSes
+      # configurationLimit = 10;  # optional: limit menu size
+    };
+    */
+
     boot.loader.efi.canTouchEfiVariables = true;
     boot.kernelParams = [ "pcie_aspm=off"];
 

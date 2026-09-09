@@ -1,8 +1,12 @@
 # User definition for bob.
-{ ... }:
+{ inputs, ... }:
 
 {
-  flake.nixosModules.user-bob = { pkgs, ... }: {
+  flake.nixosModules.user-bob = { pkgs, ... }: 
+  let
+    tmog = inputs.tmog.packages.${pkgs.system}.tmog;
+  in
+{
 
     /*
     systemd.user.services.easyeffects = {
@@ -39,6 +43,10 @@
         jetbrains.datagrip
         rar
         unrar
+        clamav
+        libreoffice-stable
+        ferdium
+        tmog
       ];
     };
   };
