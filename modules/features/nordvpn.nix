@@ -1,10 +1,13 @@
-{ config, lib, ... }:
+{ ... }:
 
 {
+  flake.nixosModules.nordvpn = {pkgs, ...}: {
   services.nordvpn = {
     enable = true;
-    users = [ "grid777" ];
+    user = "bob" ;
   };
 
   networking.firewall.checkReversePath = "loose";
+  };
 }
+
