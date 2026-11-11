@@ -12,9 +12,9 @@
       self.nixosModules.obsstudio
       self.nixosModules.user-bob
       #self.nixosModules.database
-      self.nixosModules.docker
+      #self.nixosModules.docker
       self.nixosModules.networking
-      self.nixosModules.aimodels
+      #self.nixosModules.aimodels
     ];
 
     boot.loader.systemd-boot.enable = true;

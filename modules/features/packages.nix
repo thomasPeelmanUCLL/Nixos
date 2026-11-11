@@ -61,6 +61,9 @@
 
       # ryzer
       polychromatic
+
+      php
+
     ];
   };
 }

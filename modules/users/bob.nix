@@ -21,6 +21,7 @@
 
     services.pcscd.enable = true;
 
+    services.input-remapper.enable = true;   
 
 
     users.users.bob = {
@@ -35,9 +36,10 @@
         vscode
         blender
         davinci-resolve
+        digikam
         chatterino2
         gimp3
-        anytype
+        #anytype
         element-desktop
         firefox
         jetbrains.datagrip
@@ -46,7 +48,8 @@
         clamav
         libreoffice-stable
         ferdium
-        tmog
+        #tmog
+        forge-mtg
       ];
     };
   };
