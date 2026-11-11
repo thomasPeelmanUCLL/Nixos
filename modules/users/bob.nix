@@ -41,7 +41,7 @@
         chatterino2
         gimp3
         #anytype
-        brave
+        #brave
         element-desktop
         firefox
         jetbrains.datagrip
