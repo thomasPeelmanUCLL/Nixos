@@ -51,7 +51,7 @@
 
       btop
 
-      termius
+      #termius
 
       easyeffects
 

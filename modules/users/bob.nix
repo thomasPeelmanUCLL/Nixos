@@ -3,9 +3,11 @@
 
 {
   flake.nixosModules.user-bob = { pkgs, ... }: 
+  /*
   let
     tmog = inputs.tmog.packages.${pkgs.system}.tmog;
   in
+  */
 {
 
     /*
@@ -31,7 +33,6 @@
       packages = with pkgs; [
         kdePackages.kate
         thunderbird
-        brave
         pavucontrol
         vscode
         blender
@@ -40,6 +41,7 @@
         chatterino2
         gimp3
         #anytype
+        brave
         element-desktop
         firefox
         jetbrains.datagrip
